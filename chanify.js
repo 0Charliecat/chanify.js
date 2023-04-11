@@ -1,5 +1,6 @@
-const axios = require('axios');
-const pack  = require('./package.json')
+const axios    = require('axios');
+const pack     = require('./package.json')
+const FormData = require('form-data')
 
 class Chanify {
 
@@ -58,10 +59,10 @@ class Chanify {
     /**
      * `<Chanify>.sendMessage( Message )`
      * @param {Message} message
-     * @returns {any}
+     * @returns {axios}
      */
     async sendMessage(message, useragent) {
-        await axios.post(String(this.#URL)+'?content-type=json', {
+        return await axios.post(String(this.#URL)+'?content-type=json', {
             headers: { 
                 'User-Agent': (useragent) ? useragent : this.useragent
             },
@@ -77,6 +78,28 @@ class Chanify {
      */
     compose() {
         return new Message({}, this)
+    }
+
+    /**
+     * `<Chanify>.sendFile( file, name )`
+     * @param {ReadableStream|String} file Provide a readable stream or path to the file
+     * @param {String?} name if file if string then the file path is used
+     * @returns {axios}
+     */
+    async sendFile(file, name) {
+        let prefile = file
+        const form = new FormData();
+        if (typeof name === "string") {
+            file = await fs.readFile(file)
+        } 
+        form.append('file', file, (typeof prefile === "string") ? prefile.split('/').pop() : name);
+
+        return await axios.post(String(this.#URL)+'?content-type=json', {
+            headers: { 
+                ...form.getHeaders(),
+                'User-Agent': (useragent) ? useragent : this.useragent
+            },
+        })
     }
 
 }
