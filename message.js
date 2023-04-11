@@ -180,7 +180,7 @@ class Message {
     /**
      * `<Message>.send()`
      * @param {Chanify?} chanify
-     * @returns {any?}
+     * @returns {Promise?}
      */
     send(chanify) {
         if (!chanify) {
