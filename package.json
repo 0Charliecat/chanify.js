@@ -1,5 +1,5 @@
 {
-  "name": "0Charliecat/chanify.js",
+  "name": "@0Charliecat/chanify.js",
   "version": "1.0.0",
   "description": "NodeJS sender client for chanify",
   "main": "index.js",
