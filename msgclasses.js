@@ -197,15 +197,13 @@ class Message {
     toJSON() {
         let selfObj = {...this}
         if (selfObj.hasOwnProperty('#parent')) {
-            delete selfObj.#parent
+            //console.log(`selfObj.hasOwnProperty('#parent')`, 'yes')
+            //delete selfObj.#parent
         }
+        //console.log(selfObj)
         return selfObj
     }
 
-
-}
-
-class Link {
 
 }
 
@@ -226,11 +224,12 @@ class Action {
      * @returns {{name: string, url: string}}
      */
     toJSON() {
-        let output = {...this}
+        /*let output = {...this}
         return {
             name: output.name,
             URL: String(output.url)
-        }
+        }*/
+        return `${this.name}|${String(this.URL)}`
     }
 
     /**
@@ -308,3 +307,5 @@ class Priority {
         return this.$
     }
 }
+
+module.exports = { InterruptionLevel, Sound, AutoCopy, Message, Action, Priority }
