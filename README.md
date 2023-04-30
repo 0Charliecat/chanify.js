@@ -108,3 +108,38 @@ The reason why u probbs use this package
    - **Returns** `Promise`
 - `<Message>.toJSON()` • makes message as ready to send JSON body
    - **Returns** `Any`
+
+### class `Action`
+
+Creates an Action append-able to the message
+
+- `constructor( content ) || new Action( content ) || <Message>.setAction( content )`
+   - **Param** `content` Object
+      - `name` String: Display name of the action
+      - `URL` String || URL: url where the user is taken when the action is fired
+   - **Returns** [`Action`](https://github.com/0Charliecat/chanify.js#class-action) • note: `<Message>.setAction()` returns Message with appended Action
+- `<Action>.setActionName( name )`
+   - **Param** `name` String: sets the action display name
+   - **Returns** [`Action`](https://github.com/0Charliecat/chanify.js#class-action)
+- `<Action>.setURL( url )`
+   - **Param** `url` String || URL: url of the action
+   - **Returns** [`Action`](https://github.com/0Charliecat/chanify.js#class-action)
+- `<Action>.toJSON()`
+   - **Returns** `String` returns a chanify accepted string
+- `<Action>.toString()`
+   - **Returns** `String` returns a chanify accepted string
+
+### class `Priority`
+
+- `constructor( e ) || new Priority( e ) || <Message>.setPriority( e )`
+   - **Param** `e` Number >= 0 && Number <= 10 || String (which is a Number >= 0 && Number <= 10)
+   - **Returns** [`Priority`](https://github.com/0Charliecat/chanify.js#class-priority) • note: `<Message>.setPriority()` returns Message with such Priority
+- `<Priority>.getPriority()`
+   - **Returns** `Number`
+- `<Priority>.toString()`
+   - **Returns** `String`
+- `<Priority>.toNumber()`
+   - **Returns** `Number`
+- `<Priority>.toJSON()`
+   - **Returns** `Number`
+
