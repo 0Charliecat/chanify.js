@@ -30,17 +30,34 @@ chan.compose()
 
 ## Table of contents
 
-- class `Chanify`
-- class `Message`
-- class `Action`
-- class `Priority`
-- object `InteruptionLevel`
-- object `Sound`
-- object `AutoCopy`
+- **Documentation**
+   - Module
+   - [class `Chanify`](https://github.com/0Charliecat/chanify.js#class-chanify)
+   - [class `Message`](https://github.com/0Charliecat/chanify.js#class-message)
+   - [class `Action`](https://github.com/0Charliecat/chanify.js#class-action)
+   - [class `Priority`](https://github.com/0Charliecat/chanify.js#class-priority)
+   - [object `InteruptionLevel`](https://github.com/0Charliecat/chanify.js#object-interruptionlevel)
+   - [object `Sound`](https://github.com/0Charliecat/chanify.js#object-sound)
+   - [object `AutoCopy`](https://github.com/0Charliecat/chanify.js#object-autocopy)
 
 ---
 
 ## Documentation
+
+### Module
+
+this is the impored module, the Chanify Class object which isn't inicialised with all other classes added
+
+```javascript
+Chanify {
+  Message,
+  Action,
+  Priority,
+  InteruptionLevel,
+  Sound,
+  AutoCopy
+}
+```
 
 ### class `Chanify`
 
@@ -143,3 +160,64 @@ Creates an Action append-able to the message
 - `<Priority>.toJSON()`
    - **Returns** `Number`
 
+### object `InteruptionLevel`
+
+```javascript
+InterruptionLevel = {
+    Active: "active", // Defaults to
+
+    Passive: "passive",
+    TimeSensitive: "time-sensitive"
+}
+```
+
+### object `Sound`
+
+```javascript
+Sound = {
+    None: 0, // Defaults to
+    Enable: 1,
+    Default: "default",
+
+    Alarm: "alarm",
+    Anticipate: "anticipate",
+    Bell: "bell",
+    Bloom: "bloom",
+    Calypso: "calypso",
+    Chime: "chime",
+    Choo: "choo",
+    Decent: "decent",
+    Electronic: "electronic",
+    Fanfare: "fanfare",
+    Glass: "glass",
+    GoToSleep: "go_to_sleep",
+    HealthNotification: "health_notification",
+    Horn: "horn",
+    Ladder: "ladder",
+    Minuet: "minuet",
+    MultiwayInvitation: "multiway_invitation",
+    NewMail: "new_mail",
+    NewsFlash: "news_flash",
+    Noir: "noir",
+    PaymentSuccess: "payment_success",
+    SentMail: "sent_mail",
+    SentSMS: "sent_sms",
+    Shake: "shake",
+    SherwoodForest: "sherwood_forest",
+    Spell: "spell",
+    Suspense: "suspense",
+    Telegraph: "telegraph",
+    Tiptoes: "tiptoes",
+    Typewriters: "typewriters",
+    Update: "update",
+}
+```
+
+### object `AutoCopy`
+
+```javascript
+AutoCopy = {
+    Disable: 0, // Defaults to
+    Enable: 1
+}
+```
