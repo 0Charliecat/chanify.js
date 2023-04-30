@@ -54,11 +54,57 @@ The main class of this package.
       - `host` String: host of the api, i.e. `api.chanify.net`
       - `https` Boolean: if HTTPS is enabled or not • defaults to `true`
       - `apiVersion` String: defaults to `v1`
-   - **Returns** `Chanify`
+   - **Returns** [`Chanify`](https://github.com/0Charliecat/chanify.js#class-chanify)
 - `<Chanify>.sendMessage( message, useragent? )`
-   - **Param** `message` Message • Required
+   - **Param** `message` [Message](https://github.com/0Charliecat/chanify.js#class-message) • Required
    - **Param** `useragent` String
       - if left `undefined` or `null` the default `chanify.js/<version> (on Node <node version>) +https://github.com/0Charliecat/chanify.js`  useragent is used
    - **Returns** `Axios` response
-- `<Chanify>.compose()` • Start a new Message
-   - **Returns** `Message`
+- `<Chanify>.compose()` • Start a new [Message](https://github.com/0Charliecat/chanify.js#class-message)
+   - **Returns** [`Message`](https://github.com/0Charliecat/chanify.js#class-message)
+
+### class `Message`
+
+The reason why u probbs use this package
+
+- `constructor( content, parent ) || new Message( content, parent ) || <Chanify>.compose()`
+   - **Param** `content` object
+      - `title` String
+      - `text` String
+      - `copy` String
+      - `autocopy` Boolean || 0 || 1 || member of [`Chanify.AutoCopy`](https://github.com/0Charliecat/chanify.js#object-autocopy)
+      - `sound` String || null || member of [`Chanify.Sound`](https://github.com/0Charliecat/chanify.js#object-sound)
+      - `priority` Number || [Priority](https://github.com/0Charliecat/chanify.js#class-priority)
+      - `interruptionlevel` String || null || member of [`Chanify.InterruptionLevel`](https://github.com/0Charliecat/chanify.js#object-interruptionlevel)
+      - `actions` Object || Object[] || [Action](https://github.com/0Charliecat/chanify.js#class-action) || [Action](https://github.com/0Charliecat/chanify.js#class-action)[]
+   - **Param** `parent` [Chanify](https://github.com/0Charliecat/chanify.js#class-chanify)
+   - **Returns** [`Message`](https://github.com/0Charliecat/chanify.js#class-message)
+- `<Message>.setTitle( title )` • Sets the title
+   - **Param** `title` String
+   - **Returns** [`Message`](https://github.com/0Charliecat/chanify.js#class-message)
+- `<Message>.setText( text )` • Sets the text
+   - **Param** `text` String
+   - **Returns** [`Message`](https://github.com/0Charliecat/chanify.js#class-message)
+- `<Message>.setCopy( copy )` • Sets the text of AutoCopy
+   - **Param** `copy` String
+   - **Returns** [`Message`](https://github.com/0Charliecat/chanify.js#class-message)
+- `<Message>.setAutoCopy( autocopy )` • Enables or disables autocopy
+   - **Param** `autocopy` Boolean || 0 || 1 || member of [`Chanify.AutoCopy`](https://github.com/0Charliecat/chanify.js#object-autocopy)
+   - **Returns** [`Message`](https://github.com/0Charliecat/chanify.js#class-message)
+- `<Message>.setSound( sound )` • Sets the sound played when notification is receved on device
+   - **Param** `sound` String || member of [`Chanify.Sound`](https://github.com/0Charliecat/chanify.js#object-sound)
+   - **Returns** [`Message`](https://github.com/0Charliecat/chanify.js#class-message)
+- `<Message>.setPriority( priority )` • Sets the priority of the notification (see official documentation)
+   - **Param** `priority` Number >= 0 && Number <= 10 || [Priority](https://github.com/0Charliecat/chanify.js#class-priority)
+   - **Returns** [`Message`](https://github.com/0Charliecat/chanify.js#class-message)
+- `<Message>.setInterruptionLevel( interruptionlevel )` • Sets the interruprion level (see official documentation)
+   - **Param** `interruptionlevel` String || member of  [`Chanify.InterruptionLevel`](https://github.com/0Charliecat/chanify.js#object-interruptionlevel)
+   - **Returns** [`Message`](https://github.com/0Charliecat/chanify.js#class-message)
+- `<Message>.setAction( action )` • Sets action(s) appended to the message
+   - **Param** `action` Object || Object[] || [Action](https://github.com/0Charliecat/chanify.js#class-action) || [Action](https://github.com/0Charliecat/chanify.js#class-action)[]
+   - **Returns** [`Message`](https://github.com/0Charliecat/chanify.js#class-message)
+- `<Message>.send( chanify? )` • Sends the message
+   - **Param** `chanify` [Chanify](https://github.com/0Charliecat/chanify.js#class-chanify) • can be ignored if was provided via the `constructor` or message was created via `<Chanify>.compose`
+   - **Returns** `Promise`
+- `<Message>.toJSON()` • makes message as ready to send JSON body
+   - **Returns** `Any`
